@@ -6,7 +6,7 @@ Exploratory data analysis and preprocessing of car insurance data using Python, 
 
 ## Project Overview
 
-This project explores a car insurance dataset containing **10,000 records and 19 columns**. The analysis examines customer attributes, driving experience, income, and other factors in relation to the binary `OUTCOME` variable. It also prepares the dataset for subsequent machine learning experiments through cleaning, encoding, splitting, and scaling.
+This project explores a car insurance dataset containing **10,000 records and 19 columns**. The analysis examines customer attributes, driving experience, income, and other factors in relation to the binary `OUTCOME` variable. The workflow includes data cleaning, categorical encoding, train/test splitting, and feature scaling.
 
 ## Analysis Objectives
 
@@ -14,7 +14,7 @@ This project explores a car insurance dataset containing **10,000 records and 19
 - Compare outcomes by gender and income category.
 - Explore the relationship between driving experience and outcomes.
 - Analyze differences by marital status.
-- Prepare a structured dataset for future predictive modeling.
+- Prepare and transform the dataset for downstream analysis.
 
 ## Exploratory Data Analysis
 
@@ -52,7 +52,7 @@ A comparison of the average outcome across marital-status categories.
 
 ## Data Preparation
 
-The notebook follows a structured data preparation process:
+The analysis includes the following data preparation steps:
 
 1. **Data exploration:** Inspect the dataset, data types, summary statistics, and missing values.
 2. **Missing-value handling:** Fill missing `CREDIT_SCORE` and `ANNUAL_MILEAGE` values with their respective medians.
@@ -97,10 +97,6 @@ Selected features include `AGE`, `GENDER`, `INCOME`, `DRIVING_EXPERIENCE`, `CRED
 └── notebooks/
     └── car_insurance.ipynb
 ```
-
-## Project Scope
-
-The current notebook covers exploratory analysis and data preparation. Model training and predictive evaluation are outside the scope of this version.
 
 ## Author
 
