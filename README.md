@@ -1,87 +1,90 @@
 # Car Insurance Claims Analysis
 
-Exploratory data analysis and preprocessing of car insurance customer records, focusing on how demographic and driving-related attributes relate to the dataset's binary `OUTCOME` label.
+Exploratory data analysis and preprocessing of car insurance data using Python, with a focus on understanding how customer demographics and driving history relate to insurance outcomes.
 
 **Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn**
 
 ## Project Overview
 
-This project examines **10,000 records and 19 columns**. The notebook explores differences in the binary outcome across age, gender, income, driving experience, and marital status. It also covers missing-value treatment, outlier handling, categorical encoding, train/test splitting, and feature scaling.
+This project explores a car insurance dataset containing **10,000 records and 19 columns**. The analysis examines customer attributes, driving experience, income, and other factors in relation to the binary `OUTCOME` variable. It also prepares the dataset for subsequent machine learning experiments through cleaning, encoding, splitting, and scaling.
 
-**Scope:** Exploratory data analysis and preprocessing. The notebook does **not** train or evaluate a prediction model, so no accuracy or performance claims are made.
+## Analysis Objectives
 
-## Business & Analysis Questions
-
-- How does the mean binary outcome vary across age groups?
-- What differences are observed by gender and income?
-- How does driving experience relate to the outcome?
-- What patterns appear across marital-status groups?
-- How is the dataset prepared for potential machine learning?
+- Examine insurance outcomes across different age groups.
+- Compare outcomes by gender and income category.
+- Explore the relationship between driving experience and outcomes.
+- Analyze differences by marital status.
+- Prepare a structured dataset for future predictive modeling.
 
 ## Exploratory Data Analysis
 
-The five figures below are extracted from the notebook's saved outputs. The bar charts show the **mean binary `OUTCOME`** within each group, not the number of claims. They show associations, not causal effects.
+The following visualizations summarize the relationships explored in the notebook. Each bar represents the average value of the binary `OUTCOME` variable within a category.
 
-### Age vs. Outcome
+### Age and Insurance Outcome
 
-![Mean outcome by age group](images/01-age-vs-outcome.png)
+![Insurance outcome by age group](images/01-age-vs-outcome.png)
 
-*Mean outcome across the notebook's age categories.*
+The analysis compares four age categories: Young, Middle_Age, Old, and Very_Old.
 
-### Gender vs. Outcome
+### Gender and Insurance Outcome
 
-![Mean outcome by gender](images/02-gender-vs-outcome.png)
+![Insurance outcome by gender](images/02-gender-vs-outcome.png)
 
-*Mean outcome by gender.*
+A comparison of average insurance outcomes across gender categories.
 
-### Income vs. Outcome
+### Income and Insurance Outcome
 
-![Mean outcome by income group](images/03-income-vs-outcome.png)
+![Insurance outcome by income category](images/03-income-vs-outcome.png)
 
-*Mean outcome across income categories.*
+An examination of how the average outcome differs across income groups.
 
-### Driving Experience vs. Outcome
+### Driving Experience and Insurance Outcome
 
-![Mean outcome by driving experience](images/04-driving-experience-vs-outcome.png)
+![Insurance outcome by driving experience](images/04-driving-experience-vs-outcome.png)
 
-*Mean outcome across driving-experience groups.*
+A comparison of driving-experience categories, from Beginner through Expert.
 
-### Marital Status vs. Outcome
+### Marital Status and Insurance Outcome
 
-![Mean outcome by marital status](images/05-marital-status-vs-outcome.png)
+![Insurance outcome by marital status](images/05-marital-status-vs-outcome.png)
 
-*Mean outcome by the `MARRIED` indicator.*
+A comparison of the average outcome across marital-status categories.
 
-> **Image status:** The image files will display after the corresponding PNGs are uploaded to the `images/` folder.
+## Data Preparation
 
-## Data Preparation Workflow
+The notebook follows a structured data preparation process:
 
-1. **Inspect data:** Explore dataset shape, column types, descriptive statistics, and missing values.
-2. **Handle missing values:** Impute `CREDIT_SCORE` and `ANNUAL_MILEAGE` using their medians.
-3. **Treat outliers:** Detect outliers with `datasist` and replace flagged numerical values with medians, as implemented in the notebook.
-4. **Prepare features:** Separate the target `OUTCOME` from predictors.
-5. **Encode categories:** Apply `pd.get_dummies(..., drop_first=True)`.
-6. **Split data:** Create training and test subsets.
-7. **Scale features:** Fit `StandardScaler` on the training set and transform both subsets.
-
-**Methodology note:** This README describes the notebook as written, without changing the original analysis. Imputation and outlier treatment occur before splitting, which should be revisited before a leakage-safe predictive experiment.
+1. **Data exploration:** Inspect the dataset, data types, summary statistics, and missing values.
+2. **Missing-value handling:** Fill missing `CREDIT_SCORE` and `ANNUAL_MILEAGE` values with their respective medians.
+3. **Outlier treatment:** Identify and handle outliers in numerical features using `datasist`.
+4. **Feature preparation:** Separate input features from the `OUTCOME` target.
+5. **Categorical encoding:** Convert categorical predictors into numerical features using one-hot encoding.
+6. **Train/test split:** Split the dataset into training and testing subsets.
+7. **Feature scaling:** Standardize the feature matrices with `StandardScaler`.
 
 ## Dataset
 
-| Attribute | Value |
+| Attribute | Details |
 | --- | --- |
 | Records | 10,000 |
 | Columns | 19 |
-| Target | `OUTCOME` (0/1) |
-| Missing `CREDIT_SCORE` | 982 |
-| Missing `ANNUAL_MILEAGE` | 957 |
+| Target variable | `OUTCOME` |
+| Data type | Customer demographics, vehicle information, and driving history |
 
-Example features: `AGE`, `GENDER`, `INCOME`, `DRIVING_EXPERIENCE`, `MARRIED`, `SPEEDING_VIOLATIONS`, `DUIS`, and `PAST_ACCIDENTS`.
+Selected features include `AGE`, `GENDER`, `INCOME`, `DRIVING_EXPERIENCE`, `CREDIT_SCORE`, `ANNUAL_MILEAGE`, `SPEEDING_VIOLATIONS`, `DUIS`, and `PAST_ACCIDENTS`.
 
-## Project Structure
+## Technologies
+
+- **Python** — data analysis
+- **Pandas & NumPy** — data manipulation and preprocessing
+- **Matplotlib & Seaborn** — data visualization
+- **datasist** — outlier detection
+- **Scikit-learn** — train/test splitting and feature scaling
+- **Jupyter Notebook** — interactive analysis
+
+## Repository Structure
 
 ```text
-car-insurance-claims-analysis/
 ├── README.md
 ├── data/
 │   └── Car_Insurance_Claim.csv
@@ -95,17 +98,9 @@ car-insurance-claims-analysis/
     └── car_insurance.ipynb
 ```
 
-## Tools & Technologies
+## Project Scope
 
-- **Python, Pandas, NumPy:** Data inspection and preparation
-- **Seaborn, Matplotlib:** Exploratory visualization
-- **datasist:** Outlier detection
-- **Scikit-learn:** Data splitting and scaling
-- **Jupyter Notebook:** Interactive analysis
-
-## Reproducibility Notes
-
-The notebook loads its CSV from the original Google Colab path `/content/Car_Insurance_Claim.csv` and installs `datasist` in a cell. To run it in a different environment, update the dataset path. The visualizations and observations above reflect saved notebook outputs; the analysis has not been independently rerun.
+The current notebook covers exploratory analysis and data preparation. Model training and predictive evaluation are outside the scope of this version.
 
 ## Author
 
